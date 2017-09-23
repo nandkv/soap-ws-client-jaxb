@@ -1,85 +1,78 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://nbrsolutions.com" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://nbrsolutions.com" targetNamespace="http://nbrsolutions.com">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://nbrsolutions.com" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://nbrsolutions.com" targetNamespace="http://nbrsolutions.com">
   <wsdl:types>
     <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://nbrsolutions.com">
 
-    <xs:element name="getCountryRequest">
+      <xs:element name="getCountryRequest">
         <xs:complexType>
-            <xs:sequence>
-                <xs:element name="name" type="xs:string"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-
-    <xs:element name="getCountryResponse">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="country" type="tns:country"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-    
-    <xs:element name="getCountryNameRequest">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="name" type="xs:string"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-
-    <xs:element name="getCountryNameResponse">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="name" type="xs:string"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-
-    <xs:complexType name="country">
-        <xs:sequence>
+          <xs:sequence>
             <xs:element name="name" type="xs:string"/>
-            <xs:element name="population" type="xs:int"/>
-            <xs:element name="capital" type="xs:string"/>
-            <xs:element name="currency" type="tns:currency"/>
-        </xs:sequence>
-    </xs:complexType>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
 
-    <xs:simpleType name="currency">
+      <xs:element name="getCountryResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="country" type="tns:country"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="getCountryNameRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="getCountryNameResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:complexType name="country">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string"/>
+          <xs:element name="population" type="xs:int"/>
+          <xs:element name="capital" type="xs:string"/>
+          <xs:element name="currency" type="tns:currency"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:simpleType name="currency">
         <xs:restriction base="xs:string">
-            <xs:enumeration value="GBP"/>
-            <xs:enumeration value="EUR"/>
-            <xs:enumeration value="PLN"/>
+          <xs:enumeration value="GBP"/>
+          <xs:enumeration value="EUR"/>
+          <xs:enumeration value="PLN"/>
         </xs:restriction>
-    </xs:simpleType>
-</xs:schema>
+      </xs:simpleType>
+    </xs:schema>
   </wsdl:types>
   <wsdl:message name="getCountryResponse">
-    <wsdl:part element="tns:getCountryResponse" name="getCountryResponse">
-    </wsdl:part>
+    <wsdl:part element="tns:getCountryResponse" name="getCountryResponse"></wsdl:part>
   </wsdl:message>
   <wsdl:message name="getCountryNameResponse">
-    <wsdl:part element="tns:getCountryNameResponse" name="getCountryNameResponse">
-    </wsdl:part>
+    <wsdl:part element="tns:getCountryNameResponse" name="getCountryNameResponse"></wsdl:part>
   </wsdl:message>
   <wsdl:message name="getCountryRequest">
-    <wsdl:part element="tns:getCountryRequest" name="getCountryRequest">
-    </wsdl:part>
+    <wsdl:part element="tns:getCountryRequest" name="getCountryRequest"></wsdl:part>
   </wsdl:message>
   <wsdl:message name="getCountryNameRequest">
-    <wsdl:part element="tns:getCountryNameRequest" name="getCountryNameRequest">
-    </wsdl:part>
+    <wsdl:part element="tns:getCountryNameRequest" name="getCountryNameRequest"></wsdl:part>
   </wsdl:message>
   <wsdl:portType name="CountriesPort">
     <wsdl:operation name="getCountry">
-      <wsdl:input message="tns:getCountryRequest" name="getCountryRequest">
-    </wsdl:input>
-      <wsdl:output message="tns:getCountryResponse" name="getCountryResponse">
-    </wsdl:output>
+      <wsdl:input message="tns:getCountryRequest" name="getCountryRequest"></wsdl:input>
+      <wsdl:output message="tns:getCountryResponse" name="getCountryResponse"></wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="getCountryName">
-      <wsdl:input message="tns:getCountryNameRequest" name="getCountryNameRequest">
-    </wsdl:input>
-      <wsdl:output message="tns:getCountryNameResponse" name="getCountryNameResponse">
-    </wsdl:output>
+      <wsdl:input message="tns:getCountryNameRequest" name="getCountryNameRequest"></wsdl:input>
+      <wsdl:output message="tns:getCountryNameResponse" name="getCountryNameResponse"></wsdl:output>
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="CountriesPortSoap11" type="tns:CountriesPort">
